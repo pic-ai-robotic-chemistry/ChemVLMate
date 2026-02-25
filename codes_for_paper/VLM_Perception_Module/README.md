@@ -1,9 +1,9 @@
 # VLM-Based Perception Module
 
 ## 1. Configuration
-Install dependency:
+* Install dependency:
 pip install openai
-Set OpenAI API key:
+* Set OpenAI API key:
 export OPENAI_API_KEY="your_api_key"
 
 ## 2. Required Input
