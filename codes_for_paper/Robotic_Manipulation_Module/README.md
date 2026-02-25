@@ -56,8 +56,8 @@ roscore
 python -c "import rospy, numpy, serial"
 ```
 ## 5. Key Module Implementation Paths
-- The compliant controller is implemented in `./src/selfdefined_trajectory_controller`.
-- The fuzzy control for weighing is implemented in `./src/dual_arm/manipulator/src/Screw_capsulation.cpp`.
+- The fine compliance controller is implemented in `./src/selfdefined_trajectory_controller`.
+- The fuzzy controller for weighing is implemented in `./src/dual_arm/manipulator/src/Screw_capsulation.cpp`.
 
 ## 6. Launch the Program
 ```bash
