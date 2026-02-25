@@ -1,0 +1,138 @@
+<launch>
+  <!-- Define aparameter -->
+  <arg name="Dashboard_flag" default="true" doc="conductTeaching board" />
+  <arg name="ADP1000_flag" default="true" doc="Use a pipette" />
+  <arg name="Balance_flag" default="false" doc="Use a balance" />
+  <arg name="Locator_flag" default="false" doc="Use relocation" />
+  <arg name="R_RGIC_flag" default="false" doc="Using the right armpgi140" />
+  <arg name="R_RGIC_port" default="RPGI" />
+  <arg name="L_PGI140_flag" default="true" doc="Using the left armpgi140" />
+  <arg name="L_PGI140_port" default="LPGI" />
+  <arg name="debug_enable_flag" default="false" doc="conductdebugtest" />
+  <arg name="Autostrech_flag" default="false" doc="Auto Scaling" />
+  <arg name="Load_JPfile" default="305exp" doc="loadofPunctuation file" />
+  <arg name="Image_flag" default="false" doc="Using visual processing" />
+  <arg name="aheadFT_flag" default="true" doc="trueAdvance torque processing,convert toworldUnder the coordinate system" />
+
+  <!-- Small medicine spoon(S)offuzzy controlparameter -->
+  <arg name="S_full" default="80" doc="Small medicine spoonFull spoon filled with medicine，Including margin"/>
+  <arg name="S_a_min" default="0.5" doc="Minimum shaking amplitude of the large medicine spoon"/>
+  <arg name="S_e_param_1" default="0.1" doc="Small medicine spoonEofZOparameter" />
+  <arg name="S_e_param_2" default="20" doc="Small medicine spoonEofNSparameter" />
+  <arg name="S_e_param_3" default="100" doc="Small medicine spoonEofNBparameter" />
+  <arg name="S_ec_param_1" default="1" doc="Small medicine spoonEcofZOparameter" />
+  <arg name="S_ec_param_2" default="10" doc="Small medicine spoonEcofPSparameter" />
+  <arg name="S_ec_param_3" default="40" doc="Small medicine spoonEcofPBparameter" />
+  <arg name="S_a_param_1" default="0.01" doc="Small medicine spoonAofZparameter" />
+  <arg name="S_a_param_2" default="1" doc="Small medicine spoonAofSparameter" />
+  <arg name="S_a_param_3" default="2" doc="Small medicine spoonAofBparameter" />
+  
+  <!-- Big medicine spoon(B)offuzzy controlparameter
+  <arg name="B_full" default="1900" doc="Big medicine spoonFull spoon filled with medicine，Including margin"/>
+  <arg name="B_e_param_1" default="1" doc="Big medicine spoonEofZOparameter" />
+  <arg name="B_e_param_2" default="300" doc="Big medicine spoonEofNSparameter" />
+  <arg name="B_e_param_3" default="2000" doc="Big medicine spoonEofNBparameter" />
+  <arg name="B_ec_param_1" default="1" doc="Big medicine spoonEcofZOparameter" />
+  <arg name="B_ec_param_2" default="400" doc="Big medicine spoonEcofPSparameter" />
+  <arg name="B_ec_param_3" default="1300" doc="Big medicine spoonEcofPBparameter" />
+  <arg name="B_a_param_1" default="0.01" doc="Big medicine spoonAofZparameter" />
+  <arg name="B_a_param_2" default="0.3" doc="Big medicine spoonAofSparameter" />
+  <arg name="B_a_param_3" default="7" doc="Big medicine spoonAofBparameter" /> -->
+
+  <!-- Big medicine spoon(B)offuzzy controlparameter -->
+  <!-- <arg name="B_full" default="500" doc="Big medicine spoonFull spoon filled with medicine，Including margin"/>
+  <arg name="B_a_min" default="0.7" doc="Minimum shaking amplitude of the large medicine spoon"/>
+  <arg name="B_e_param_1" default="5" doc="Big medicine spoonEofZOparameter" />
+  <arg name="B_e_param_2" default="30" doc="Big medicine spoonEofNSparameter" />
+  <arg name="B_e_param_3" default="200" doc="Big medicine spoonEofNBparameter" />
+  
+  <arg name="B_ec_param_1" default="0.1" doc="Big medicine spoonEcofZOparameter" />
+  <arg name="B_ec_param_2" default="10" doc="Big medicine spoonEcofPSparameter" />
+  <arg name="B_ec_param_3" default="100" doc="Big medicine spoonEcofPBparameter" />
+
+  <arg name="B_a_param_1" default="0.01" doc="Big medicine spoonAofZparameter" />
+  <arg name="B_a_param_2" default="3" doc="Big medicine spoonAofSparameter" />
+  <arg name="B_a_param_3" default="6" doc="Big medicine spoonAofBparameter" /> -->
+
+  <!-- Big medicine spoon(sodium chloride)offuzzy controlparameter -->
+  <!-- <arg name="B_full" default="1600" doc="Big medicine spoonFull spoon filled with medicine，Including margin"/>
+  <arg name="B_a_min" default="0.5" doc="Minimum shaking amplitude of the large medicine spoon"/>
+  <arg name="B_e_param_1" default="5" doc="Big medicine spoonEofZOparameter" />
+  <arg name="B_e_param_2" default="80" doc="Big medicine spoonEofNSparameter" />
+  <arg name="B_e_param_3" default="300" doc="Big medicine spoonEofNBparameter" />
+  
+  <arg name="B_ec_param_1" default="0.1" doc="Big medicine spoonEcofZOparameter" />
+  <arg name="B_ec_param_2" default="10" doc="Big medicine spoonEcofPSparameter" />
+  <arg name="B_ec_param_3" default="300" doc="Big medicine spoonEcofPBparameter" />
+
+  <arg name="B_a_param_1" default="0.01" doc="Big medicine spoonAofZparameter" />
+  <arg name="B_a_param_2" default="1" doc="Big medicine spoonAofSparameter" />
+  <arg name="B_a_param_3" default="6" doc="Big medicine spoonAofBparameter" /> -->
+  <!-- Zinc acetate -->
+  <arg name="B_full" default="220" doc="Big medicine spoonFull spoon filled with medicine，Including margin"/>
+  <!-- <arg name="B_full" default="300" doc="Big medicine spoonFull spoon filled with medicine，Including margin"/> -->
+  <arg name="B_a_min" default="0.5" doc="Big medicine spoonMaximum jitter amplitude"/>
+  <arg name="B_e_param_1" default="0.1" doc="Big medicine spoonEofZOparameter" />
+  <arg name="B_e_param_2" default="10" doc="Big medicine spoonEofNSparameter" />
+  <arg name="B_e_param_3" default="50" doc="Big medicine spoonEofNBparameter" />
+  <arg name="B_ec_param_1" default="1" doc="Big medicine spoonEcofZOparameter" />
+  <arg name="B_ec_param_2" default="40" doc="Big medicine spoonEcofPSparameter" />
+  <arg name="B_ec_param_3" default="70" doc="Big medicine spoonEcofPBparameter" />
+  <arg name="B_a_param_1" default="0.01" doc="Big medicine spoonAofZparameter" />
+  <arg name="B_a_param_2" default="2" doc="Big medicine spoonAofSparameter" />
+  <arg name="B_a_param_3" default="5" doc="Big medicine spoonAofBparameter" />
+  <!-- 2-Melm -->
+  <!-- <arg name="B_full" default="300" doc="Big medicine spoonFull spoon filled with medicine，Including margin"/>
+  <arg name="B_a_min" default="0.5" doc="Big medicine spoonMaximum jitter amplitude"/>
+  <arg name="B_e_param_1" default="0.1" doc="Big medicine spoonEofZOparameter" />
+  <arg name="B_e_param_2" default="15" doc="Big medicine spoonEofNSparameter" />
+  <arg name="B_e_param_3" default="30" doc="Big medicine spoonEofNBparameter" />
+  <arg name="B_ec_param_1" default="1" doc="Big medicine spoonEcofZOparameter" />
+  <arg name="B_ec_param_2" default="3" doc="Big medicine spoonEcofPSparameter" />
+  <arg name="B_ec_param_3" default="50" doc="Big medicine spoonEcofPBparameter" />
+  <arg name="B_a_param_1" default="0.01" doc="Big medicine spoonAofZparameter" />
+  <arg name="B_a_param_2" default="2" doc="Big medicine spoonAofSparameter" />
+  <arg name="B_a_param_3" default="5" doc="Big medicine spoonAofBparameter" /> -->
+  <!-- Start node，andtransmitparameter -->
+  <node name="A_manipulator" pkg="manipulator" type="A_manipulator" output="screen">
+    <param name="Dashboard_flag" type="bool" value="$(arg Dashboard_flag)" />
+    <param name="ADP1000_flag" type="bool" value="$(arg ADP1000_flag)" />
+    <param name="Balance_flag" type="bool" value="$(arg Balance_flag)" />
+    <param name="Locator_flag" type="bool" value="$(arg Locator_flag)" />
+    <param name="R_RGIC_flag" type="bool" value="$(arg R_RGIC_flag)" />
+    <param name="R_RGIC_port" type="string" value="$(arg R_RGIC_port)" />
+    <param name="L_PGI140_flag" type="bool" value="$(arg L_PGI140_flag)" />
+    <param name="L_PGI140_port" type="string" value="$(arg L_PGI140_port)" />
+    <param name="debug_enable_flag" type="bool" value="$(arg debug_enable_flag)" />
+    <param name="Autostrech_flag" type="bool" value="$(arg Autostrech_flag)" />
+    <param name="Load_JPfile" type="string" value="$(arg Load_JPfile)" />
+    <param name="Image_flag" type="bool" value="$(arg Image_flag)" />
+    <param name="aheadFT_flag" type="bool" value="$(arg aheadFT_flag)" />
+
+    <!-- transmitSmall medicine spoonofparameter -->
+    <param name="S_full" type="double" value="$(arg S_full)" />
+    <param name="S_a_min" type="double" value="$(arg S_a_min)" />
+    <param name="S_e_param_1" type="double" value="$(arg S_e_param_1)" />
+    <param name="S_e_param_2" type="double" value="$(arg S_e_param_2)" />
+    <param name="S_e_param_3" type="double" value="$(arg S_e_param_3)" />
+    <param name="S_ec_param_1" type="double" value="$(arg S_ec_param_1)" />
+    <param name="S_ec_param_2" type="double" value="$(arg S_ec_param_2)" />
+    <param name="S_ec_param_3" type="double" value="$(arg S_ec_param_3)" />
+    <param name="S_a_param_1" type="double" value="$(arg S_a_param_1)" />
+    <param name="S_a_param_2" type="double" value="$(arg S_a_param_2)" />
+    <param name="S_a_param_3" type="double" value="$(arg S_a_param_3)" />
+    
+    <!-- transmitBig medicine spoonofparameter -->
+    <param name="B_full" type="double" value="$(arg B_full)" />
+    <param name="B_a_min" type="double" value="$(arg B_a_min)" />
+    <param name="B_e_param_1" type="double" value="$(arg B_e_param_1)" />
+    <param name="B_e_param_2" type="double" value="$(arg B_e_param_2)" />
+    <param name="B_e_param_3" type="double" value="$(arg B_e_param_3)" />
+    <param name="B_ec_param_1" type="double" value="$(arg B_ec_param_1)" />
+    <param name="B_ec_param_2" type="double" value="$(arg B_ec_param_2)" />
+    <param name="B_ec_param_3" type="double" value="$(arg B_ec_param_3)" />
+    <param name="B_a_param_1" type="double" value="$(arg B_a_param_1)" />
+    <param name="B_a_param_2" type="double" value="$(arg B_a_param_2)" />
+    <param name="B_a_param_3" type="double" value="$(arg B_a_param_3)" />>
+  </node>
+</launch>

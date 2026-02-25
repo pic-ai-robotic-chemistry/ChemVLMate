@@ -1,0 +1,7 @@
+# Basic dependencies
+numpy>=1.19.5
+rospkg>=1.2.9
+catkin_pkg>=0.4.23
+pyserial>=3.5
+pyyaml>=5.4.1
+scipy>=1.5.4
